@@ -430,7 +430,7 @@ def agenda(tipe):
             reader = csv.reader(file)
             for row in reader: todo.append(row)
         if len(todo) > 0:
-            print(f"No\tKegiatan")
+            print("No\tKegiatan")
             print("-"*51)
             nomor = 1
             for data in todo:
