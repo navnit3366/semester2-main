@@ -26,8 +26,7 @@ def inputDate(status):
     while True:
         try:
             while status == 3:
-                tahun = int(input("Thn> "))
-                if tahun == 0: status = -1
+                if (tahun := int(input("Thn> "))) == 0: status = -1
                 elif tahun < int(sekarang[0]): raise WaktuSalah
                 elif tahun >= int(sekarang[0]) and tahun < 10000:
                     tahunSkrg = True if tahun == int(sekarang[0]) else False
@@ -35,8 +34,7 @@ def inputDate(status):
                     status = 2
                 else: raise ValueError
             while status == 2:
-                bulan = int(input("Bln> "))
-                if bulan == 0: status = -1
+                if (bulan := int(input("Bln> "))) == 0: status = -1
                 if 0 < bulan <= 12:
                     if tahunSkrg == True and bulan < int(sekarang[1]): raise WaktuSalah
                     else:
@@ -46,8 +44,7 @@ def inputDate(status):
                         status = 1
                 else: raise ValueError
             while status == 1:
-                tanggal = int(input("Tgl> "))
-                if tanggal == 0: status = -1
+                if (tanggal := int(input("Tgl> "))) == 0: status = -1
                 if 0 < tanggal <= int(maxBulan):
                     if kabisat == 0 and bulan == 2 and tanggal >= 29: raise BukanKabisat
                     elif thnblnSkrg == True and tanggal < int(sekarang[2]): raise WaktuSalah
@@ -343,8 +340,7 @@ def urut(tipe):
     print("[2] Descending")
     print("[0] Kembali")
     while status == 1:
-        select_sorting = input("Select> ")
-        if select_sorting == '0': break
+        if (select_sorting := input("Select> ")) == '0': break
         if select_sorting == '1' or select_sorting == '2':
             if tipe == 1:
                 if select_sorting == '1': shellsort(todo, 0)
